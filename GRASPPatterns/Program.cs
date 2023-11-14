@@ -2,6 +2,7 @@
 using GRASPPatterns._02_Coupling;
 using GRASPPatterns._03_InformationExpert;
 using GRASPPatterns._04_Creator;
+using GRASPPatterns._05_Polymorphism;
 
 Console.WriteLine("Hello, World!");
 
@@ -33,3 +34,15 @@ invoice.InvoiceNumber = "213213";
 
 invoice.AddItem(1, 20, "Ürün-1");
 invoice.AddItem(2, 20, "Ürün-2");
+
+// Polymophisim yakalamak için nesneye is soruları soralım
+// Button is Component ?
+// Button ekrana nasıl çizdirilir ?
+
+Button btn = new Button();
+btn.Draw();
+
+SwitchButton sb = new SwitchButton();
+sb.Draw();
+
+
