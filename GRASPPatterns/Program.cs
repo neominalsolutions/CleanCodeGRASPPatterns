@@ -4,6 +4,7 @@ using GRASPPatterns._03_InformationExpert;
 using GRASPPatterns._04_Creator;
 using GRASPPatterns._05_Polymorphism;
 using GRASPPatterns._07_Indirection;
+using GRASPPatterns._09_LawOfDemetter;
 
 Console.WriteLine("Hello, World!");
 
@@ -62,4 +63,27 @@ user.Email = "Ali";
 
 var userBussinessService = new UserBussinessService();
 userBussinessService.CreateAccount(user, "24332432");
+
+
+// LawOfDemetter Yasası Bad Practice Yanlış kullanım
+// Müşterinin hesap dökümünü almak istiyorum
+var bankCustomer = new BankCustomer();
+// bir nesnenin alt düğümlerine kadar inip law of demetter yasasını ihlal ediyoruz.
+bankCustomer.Accounts.FirstOrDefault(x => x.AccountNumber == "2143213").Transactions.ToList();
+
+bankCustomer.Accounts.FirstOrDefault(x => x.AccountNumber == "2143213").Transactions.Add().ToList();
+
+bankCustomer.Accounts.FirstOrDefault(x => x.AccountNumber == "23233").Balance = 15;
+
+// Law of Demetter yasası nesneler arasındaki ilişkileri sınırlandırma yasası, ve aynı zamanda bir nesnenin alt düğümlerine erişimi kısıtlama
+var currentAccount = bankCustomer.GetCurrentAccount("3242343242");
+// currentAccount.Balance = 56; koda müdahaleyi sınırladık
+// hesap dökümünü getir.
+
+// hesaba ait döküme erişimi sınırlandırdık.
+var transactions2 = bankCustomer.GetCurrentAccount("23432432").GetTransactions();
+
+bankCustomer.GetCurrentAccount("432432432").GetTransactions();
+
+
 
