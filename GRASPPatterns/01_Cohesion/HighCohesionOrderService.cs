@@ -36,6 +36,13 @@ namespace GRASPPatterns._01_Cohesion
       orderRepository = new OrderRepository();
     }
 
+    public HighCohesionOrderService(EmailService emailService, DiscountService discountService, OrderRepository orderRepository)
+    {
+      this.emailService = emailService;
+      this.discountService = discountService;
+      this.orderRepository = orderRepository;
+    }
+
     // Method kullanımı
 
     /// <summary>
