@@ -12,7 +12,6 @@ namespace GRASPPatterns._04_Creator
     // field
     private List<InvoiceItem> items = new List<InvoiceItem>();
 
-
     // property
 
     // GIB324324324 unique
@@ -44,7 +43,5 @@ namespace GRASPPatterns._04_Creator
 
       items.Add(item);
     }
-
-
   }
 }

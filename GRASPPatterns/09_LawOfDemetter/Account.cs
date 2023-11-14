@@ -18,7 +18,6 @@ namespace GRASPPatterns._09_LawOfDemetter
     private List<AccountTransaction> transactions = new List<AccountTransaction>();
 
 
-
     public void WithDraw(decimal amount)
     {
       // ilgili hesaptan para çekme işlemi 
@@ -28,9 +27,6 @@ namespace GRASPPatterns._09_LawOfDemetter
     {
       return this.transactions.ToList();
     }
-
-  
-
 
   }
 }
